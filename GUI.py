@@ -45,7 +45,11 @@ def Generate():
 
 def StartAlgorithm():
     global data
-    bubbleSort(data, drawData,speedScale.get())
+    print(algMenu.get())
+    if(algMenu.get() == 'Bubble Sort'):
+        bubbleSort(data, drawData,speedScale.get())
+    elif (algMenu.get() == 'insertion Sort'):
+        insertionSort(data, drawData, speedScale.get())
 
 
 root = Tk()
@@ -65,7 +69,7 @@ canvas.grid(row=1, column=0, padx=10, pady=5)
 # UI area
 # row 0
 Label(UI_frame, text="Algorithms", bg="grey").grid(row=0, column=0, padx=5, pady=5, sticky=W)
-algMenu = ttk.Combobox(UI_frame, textvariable=selected_alg, values=['Bubble Sort', 'Merge Sort'])
+algMenu = ttk.Combobox(UI_frame, textvariable=selected_alg, values=['Bubble Sort', 'insertion Sort', 'Merge Sort'])
 algMenu.grid(row=0, column=1, padx=5, pady=5)
 algMenu.current(0)
 
